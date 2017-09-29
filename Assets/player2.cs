@@ -3,20 +3,14 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class phisik : MonoBehaviour
+public class player2 : MonoBehaviour
 {
 
     private float speed = 5.0f;
     private float jump = 25.0f;
-    new private Rigidbody2D rigidbody;
-    private Animator animator;
-    public GameObject door;
 
-    private void Awake()
-    {
-        rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-    }
+
+   
 
     // Use this for initialization
     void Start()
@@ -32,18 +26,18 @@ public class phisik : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.I))
         {
             transform.Translate(new Vector2(0.0f, jump * Time.deltaTime));
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.L))
         {
             transform.Translate(new Vector2(speed * Time.deltaTime, 0.0f));
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.J))
         {
             transform.Translate(new Vector2(-speed * Time.deltaTime, 0.0f));
         }
     }
-   
+
 }
