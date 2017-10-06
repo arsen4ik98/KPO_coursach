@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class phisik : MonoBehaviour
 {
 
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     private float jump = 25.0f;
     new private Rigidbody2D rigidbody;
     private Animator animator;
     public GameObject door;
+    private bool isFacingRight = true;
+
 
     private void Awake()
     {
@@ -30,20 +32,40 @@ public class phisik : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
+       
+        float move = Input.GetAxis("Horizontal");
+
+        
+        animator.SetFloat("Speed", Mathf.Abs(move));
+
+       
+        rigidbody.velocity = new Vector2(move * speed, rigidbody.velocity.y);
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector2(0.0f, jump * Time.deltaTime));
         }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(new Vector2(speed * Time.deltaTime, 0.0f));
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(new Vector2(-speed * Time.deltaTime, 0.0f));
-        }
+
+        if (move > 0 && !isFacingRight)
+           
+            Flip();
+       
+        else if (move < 0 && isFacingRight)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        //меняем направление движения персонажа
+        isFacingRight = !isFacingRight;
+        //получаем размеры персонажа
+        Vector3 theScale = transform.localScale;
+        //зеркально отражаем персонажа по оси Х
+        theScale.x *= -1;
+        //задаем новый размер персонажа, равный старому, но зеркально отраженный
+        transform.localScale = theScale;
     }
    
 }
