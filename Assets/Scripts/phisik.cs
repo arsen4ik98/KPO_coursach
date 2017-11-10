@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class phisik : MonoBehaviour
 {
-
+    //находится ли персонаж на земле или в прыжке?
+	private bool isGrounded = false;
+	//ссылка на компонент Transform объекта
+	//для определения соприкосновения с землей
+	public Transform groundCheck;
+	//радиус определения соприкосновения с землей
+	private float groundRadius = 0.2f;
+	//ссылка на слой, представляющий землю
+	public LayerMask whatIsGround;
     public float speed = 5.0f;
     private float jump = 25.0f;
     new private Rigidbody2D rigidbody;
@@ -27,14 +35,31 @@ public class phisik : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
+        //если персонаж на земле и нажат пробел...
+        if (isGrounded && Input.GetKeyDown(KeyCode.W))
+        {
+            //устанавливаем в аниматоре переменную в false
+            animator.SetBool("Ground", false);
+            //прикладываем силу вверх, чтобы персонаж подпрыгнул
+            rigidbody.AddForce(new Vector2(0, 1000));
+        }
     }
 
     private void FixedUpdate()
     {
-       
+
+        //определяем, на земле ли персонаж
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        //устанавливаем соответствующую переменную в аниматоре
+        animator.SetBool("Ground", isGrounded);
+        //устанавливаем в аниматоре значение скорости взлета/падения
+        animator.SetFloat("vSpeed", rigidbody.velocity.y);
+        //если персонаж в прыжке - выход из метода, чтобы не выполнялись действия, связанные с бегом
+        if (!isGrounded)
+            return;
+
         float move = Input.GetAxis("Horizontal");
 
         
@@ -43,10 +68,7 @@ public class phisik : MonoBehaviour
        
         rigidbody.velocity = new Vector2(move * speed, rigidbody.velocity.y);
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(new Vector2(0.0f, jump * Time.deltaTime));
-        }
+
 
         if (move > 0 && !isFacingRight)
            
@@ -67,5 +89,6 @@ public class phisik : MonoBehaviour
         //задаем новый размер персонажа, равный старому, но зеркально отраженный
         transform.localScale = theScale;
     }
+
    
 }
