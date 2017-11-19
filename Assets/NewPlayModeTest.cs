@@ -5,17 +5,29 @@ using System.Collections;
 
 public class NewPlayModeTest {
 
-	[Test]
-	public void NewPlayModeTestSimplePasses() {
-		// Use the Assert class to test conditions.
-	}
+    //[Test]
+    //public void NewPlayModeTestSimplePasses()
+    //{
+    //    playerScripts x = new playerScripts();
+    //    Assert.AreEqual(x.transform.Translate(new Vector2(0.0f, x.jump * Time.deltaTime)), x.FixedUpdate);
+    //    Assert.AreEqual(x.door.transform.position = new Vector2(-0.06f, -3.88f), x.OnTriggerEnter2D(col.gameObject.tag == "button"));
+    //}
 
-	// A UnityTest behaves like a coroutine in PlayMode
-	// and allows you to yield null to skip a frame in EditMode
-	[UnityTest]
-	public IEnumerator NewPlayModeTestWithEnumeratorPasses() {
-		// Use the Assert class to test conditions.
-		// yield to skip a frame
-		yield return null;
-	}
+    [Test]
+    public void NewPlayModeTestPass()
+    {
+        Assert.Pass();
+    }
+[Category("Failing Tests;")]
+    [Test]
+    public void NewPlayModeTestFail()
+    {
+        Assert.Fail();
+    }
+    //   [Test]
+    //public void NewPlayModeTestSimplePasses1()
+    //   {
+    //       player2 x = new player2();
+        
+    //   }
 }

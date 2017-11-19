@@ -11,7 +11,7 @@ public class player2 : MonoBehaviour
     //для определения соприкосновения с землей
     public Transform groundCheck;
     //радиус определения соприкосновения с землей
-    private float groundRadius = 0.2f;
+    private float groundRadius = 0.4f;
     //ссылка на слой, представляющий землю
     public LayerMask whatIsGround;
     public float speed = 5.0f;
@@ -44,10 +44,11 @@ public class player2 : MonoBehaviour
             animator.SetBool("Ground", false);
             //прикладываем силу вверх, чтобы персонаж подпрыгнул
             rigidbody.AddForce(new Vector2(0, 1000));
+            
         }
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         //определяем, на земле ли персонаж
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);

@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class trigger_key_dor : MonoBehaviour {
-    private Animator animator1;
-    new private Rigidbody2D rigidbody;
+    public Animator animator1;
+    new private Rigidbody2D rigidbody ;
     public GameObject door , key_open, key_close, gras;
 
 	// Use this for initialization
@@ -20,12 +20,12 @@ public class trigger_key_dor : MonoBehaviour {
 	void Update () {
 	    
 	}
-    void OnTriggerEnter2D(Collider2D col)
+   public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "button")
         {
             Debug.Log("111");
-            //door.transform.position = new Vector2(-0.06f, -3.88f);
+            door.transform.position = new Vector2(-0.06f, -3.88f);
             Destroy(key_open);
             animator1.Play("open");
             Debug.Log("animation");

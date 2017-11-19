@@ -11,7 +11,7 @@ public class phisik : MonoBehaviour
 	//для определения соприкосновения с землей
 	public Transform groundCheck;
 	//радиус определения соприкосновения с землей
-	private float groundRadius = 0.2f;
+	private float groundRadius = 0.4f;
 	//ссылка на слой, представляющий землю
 	public LayerMask whatIsGround;
     public float speed = 5.0f;
