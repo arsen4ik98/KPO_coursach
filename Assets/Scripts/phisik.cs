@@ -12,6 +12,7 @@ public class phisik : MonoBehaviour
 	public Transform groundCheck;
 	//радиус определения соприкосновения с землей
 	private float groundRadius = 0.4f;
+    public Text text;
 	//ссылка на слой, представляющий землю
 	public LayerMask whatIsGround;
     public float speed = 5.0f;
@@ -26,6 +27,7 @@ public class phisik : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     // Use this for initialization
@@ -89,6 +91,13 @@ public class phisik : MonoBehaviour
         //задаем новый размер персонажа, равный старому, но зеркально отраженный
         transform.localScale = theScale;
     }
+    //public void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if (col.gameObject.tag == "finish")
+    //    {
+    //        text.text = "Финиш";
+    //    }
 
+    //}
    
 }

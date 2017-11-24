@@ -24,23 +24,29 @@ public class trigger_key_dor : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "button")
+        if (col.gameObject.tag == "button" )
         {
             animator.SetBool("Click", true);
             door.transform.position = new Vector2(-0.06f, -3.88f);
+           
         }
-        //if (col.gameObject.tag != "button")
-        //{
-        //    animator.SetBool("Click", false);
-        //}
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "button")
+        {
+           animator.SetBool("Click", false);
+           door.transform.position = new Vector2(-0.06f, -8.5f);
+        }
     }
 
    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "button1")
         {
-            gras.transform.localScale = new Vector2(1.6f, 1f);
+            gras.transform.localScale = new Vector2(0.4126858f, 1f);
+            gras.transform.position = new Vector2(-10.4f, 0.35f);
         }
 
-    }
+   }
 }
