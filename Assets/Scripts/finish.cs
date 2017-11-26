@@ -23,8 +23,6 @@ public class finish : MonoBehaviour {
         {
             Debug.Log("finish");
             text.text = "Финишdrrgrgr";
-
         }
-
     }
 }

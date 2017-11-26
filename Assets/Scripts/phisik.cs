@@ -11,7 +11,7 @@ public class phisik : MonoBehaviour
 	//для определения соприкосновения с землей
 	public Transform groundCheck;
 	//радиус определения соприкосновения с землей
-	private float groundRadius = 0.4f;
+	private float groundRadius = 0.7f;
     public Text text;
 	//ссылка на слой, представляющий землю
 	public LayerMask whatIsGround;
@@ -91,13 +91,14 @@ public class phisik : MonoBehaviour
         //задаем новый размер персонажа, равный старому, но зеркально отраженный
         transform.localScale = theScale;
     }
-    //public void OnTriggerEnter2D(Collider2D col)
-    //{
-    //    if (col.gameObject.tag == "finish")
-    //    {
-    //        text.text = "Финиш";
-    //    }
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "finish")
+        {
+            text.text = "Финиш";
+            //Application.LoadLevel("2_level");
+        }
 
-    //}
+    }
    
 }

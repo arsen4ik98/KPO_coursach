@@ -6,6 +6,7 @@ public class trigger_key_dor : MonoBehaviour {
     new private Rigidbody2D rigidbody ;
     public GameObject door , key_open, key_close, gras;
     public Transform ClickCheck;
+    //public trigger_key_dor gameObject1;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class trigger_key_dor : MonoBehaviour {
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //gameObject1 = GetComponent<trigger_key_dor>();
     }
 	// Update is called once per frame
 	void Update () {
@@ -27,16 +29,17 @@ public class trigger_key_dor : MonoBehaviour {
         if (col.gameObject.tag == "button" )
         {
             animator.SetBool("Click", true);
-            door.transform.position = new Vector2(-0.06f, -3.88f);
-           
+            //gameObject1.animator.SetBool("Click1", true);
+            //door.transform.position = new Vector2(-0.06f, -3.88f);          
         }
+
     }
     void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.tag == "button")
         {
            animator.SetBool("Click", false);
-           door.transform.position = new Vector2(-0.06f, -8.5f);
+           //door.transform.position = new Vector2(-0.06f, -8.5f);
         }
     }
 

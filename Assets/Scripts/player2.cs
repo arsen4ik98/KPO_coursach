@@ -11,7 +11,7 @@ public class player2 : MonoBehaviour
     //для определения соприкосновения с землей
     public Transform groundCheck;
     //радиус определения соприкосновения с землей
-    private float groundRadius = 0.4f;
+    private float groundRadius = 0.8f;
     public Text text;
     //ссылка на слой, представляющий землю
     public LayerMask whatIsGround;
