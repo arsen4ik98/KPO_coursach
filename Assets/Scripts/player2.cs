@@ -21,19 +21,21 @@ public class player2 : MonoBehaviour
     private Animator animator;
     public GameObject door;
     private bool isFacingRight = true;
+    public Animation animation;
 
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        animation = GetComponent<Animation>();
         
     }
 
     // Use this for initialization
     void Start()
     {
-
+        animation.Play();
     }
 
     // Update is called once per frame

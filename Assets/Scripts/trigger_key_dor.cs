@@ -4,11 +4,13 @@ using System.Collections;
 public class trigger_key_dor : MonoBehaviour {
     public Animator animator;
     new private Rigidbody2D rigidbody ;
-    public GameObject door , key_open, key_close, gras;
+    public GameObject door, door1, key_open, key_close, gras, gras1,hole;
     private bool isClick = false;
     public Transform ClickCheck;
     private float ClickRadius = 0.4f;
     public LayerMask whatIsClick;
+    public GameObject key;
+    BoxCollider2D Boxcollider;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,7 @@ public class trigger_key_dor : MonoBehaviour {
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Boxcollider = GetComponent<BoxCollider2D>();
     }
 	// Update is called once per frame
 	void Update () {
@@ -46,10 +49,23 @@ public class trigger_key_dor : MonoBehaviour {
     {
         if (col.gameObject.tag == "button1")
         {
-            gras.transform.localScale = new Vector2(0.4126858f, 1f);
-            gras.transform.position = new Vector2(-10.4f, 0.35f);
+            //gras.active = true;
+            gras.SetActive(true);
+            gras1.SetActive(true);
+            Destroy(hole);
+        }
+        if (col.gameObject.tag == "batut")
+        {
+            key.transform.position = new Vector2(-6.05f, 12.6f);
         }
    }
+   //public void OnTriggerEnter2D(Collider2D col)
+   //{
+   //    if (col.gameObject.tag == "batut")
+   //    {
+   //        Boxcollider.isTrigger = false; 
+   //    }
+   //}
 
    public void FixedUpdate()
    {

@@ -21,6 +21,7 @@ public class phisik : MonoBehaviour
     private Animator animator;
     public GameObject door;
     private bool isFacingRight = true;
+    public GameObject batut;
 
 
     private void Awake()
@@ -91,14 +92,13 @@ public class phisik : MonoBehaviour
         //задаем новый размер персонажа, равный старому, но зеркально отраженный
         transform.localScale = theScale;
     }
-    public void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "finish")
-        {
-            text.text = "Финиш";
-            //Application.LoadLevel("2_level");
-        }
-
-    }
+    //public void OnTriggerEnter2D(Collider2D col)
+    //{
+    //    if (col.gameObject.tag == "finish")
+    //    {
+    //        text.text = "Финиш";
+    //        //Application.LoadLevel("2_level");
+    //    }
+    //}
    
 }

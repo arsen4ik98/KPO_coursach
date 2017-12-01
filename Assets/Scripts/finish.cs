@@ -9,7 +9,7 @@ public class finish : MonoBehaviour {
     public GameObject player1, player2;
 	// Use this for initialization
 	void Start () {
-		
+        Text text = GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -17,12 +17,15 @@ public class finish : MonoBehaviour {
 
 		
 	}
-    public void OnTriggerEnter2D(Collider2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player1" && col.gameObject.tag == "Player2")
+        if (col.gameObject.tag == "Player1")
         {
-            Debug.Log("finish");
-            text.text = "Финишdrrgrgr";
+            if (col.gameObject.tag == "Player2")
+            {
+                Debug.Log("finish");
+                text.text = "Финишdrrgrgr";
+            }
         }
     }
 }
