@@ -72,5 +72,6 @@ public class trigger_key_dor : MonoBehaviour {
        isClick = Physics2D.OverlapCircle(ClickCheck.position, ClickRadius, whatIsClick);
        //устанавливаем соответствующую переменную в аниматоре
        animator.SetBool("Click1", isClick);
+       animator.SetBool("Click2", isClick);
    }
 }
