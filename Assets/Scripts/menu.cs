@@ -7,6 +7,7 @@ public class menu : MonoBehaviour
 {
 
     bool mous;
+    public GameObject start, change_lvl, lvl1, lvl2, lvl3, exit;
     // Use this for initialization
     void Start()
     {
