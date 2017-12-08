@@ -54,11 +54,31 @@ public class trigger_key_dor : MonoBehaviour {
             gras1.SetActive(true);
             Destroy(hole);
         }
+        if (col.gameObject.tag == "button2")
+        {
+            //gras.active = true;
+            gras.SetActive(true);
+            gras1.SetActive(true);
+            Destroy(hole);
+        }
         if (col.gameObject.tag == "batut")
         {
             key.transform.position = new Vector2(-6.05f, 12.6f);
         }
+       
    }
+   public void OnTriggerExit2D(Collider2D col)
+   {
+       if (col.gameObject.tag == "button2")
+       {
+           //gras.active = true;
+           gras.SetActive(false);
+           gras1.SetActive(false);
+           Destroy(hole);
+       }
+   }
+
+
    //public void OnTriggerEnter2D(Collider2D col)
    //{
    //    if (col.gameObject.tag == "batut")

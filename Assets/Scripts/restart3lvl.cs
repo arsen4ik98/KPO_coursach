@@ -13,4 +13,9 @@ public class restart3lvl : MonoBehaviour {
 	void Update () {
 		
 	}
+    void OnMouseDown()
+    {
+        Application.LoadLevel("3_level");
+
+    }
 }

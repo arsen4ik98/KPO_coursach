@@ -13,7 +13,7 @@ public class lvl1 : MonoBehaviour {
 	void Update () {
      
 	}
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         Application.LoadLevel("1_level");
     }

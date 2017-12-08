@@ -14,7 +14,7 @@ public class start : MonoBehaviour {
 	void Update () {
 		
 	}
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         change_lvl.SetActive(true);
         lvl1.SetActive(true);

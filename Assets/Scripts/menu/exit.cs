@@ -15,7 +15,7 @@ public class exit : MonoBehaviour {
         
         
 	}
-    void OnMouseDown()
+   public void OnMouseDown()
     {
         Debug.Log("21412");
         Application.Quit();

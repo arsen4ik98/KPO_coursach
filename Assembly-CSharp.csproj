@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\finish.cs" />
+     <Compile Include="Assets\Scripts\finish2.cs" />
+     <Compile Include="Assets\Scripts\finish3.cs" />
      <Compile Include="Assets\Scripts\menu.cs" />
      <Compile Include="Assets\Scripts\menu\exit.cs" />
      <Compile Include="Assets\Scripts\menu\lvl1.cs" />

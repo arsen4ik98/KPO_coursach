@@ -13,4 +13,9 @@ public class lvl3 : MonoBehaviour {
 	void Update () {
 		
 	}
+    void OnMouseDown()
+    {
+        Application.LoadLevel("3_level");
+
+    }
 }
